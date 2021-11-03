@@ -2,22 +2,14 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title} Assignment
-  button(type="button", onclick="update()", class="btn btn-secondary") press me
-
-  <br>
-  <br>
-
-  div(id="target") Display
-  <br>
-  a(Type="button", href="/mango") Rose list 
-
+  - const donuts = ['cost','quantity','donut_type']
+  - let results;
   script.
-        let client_count = 0;
-        function update()
-         {
-            client_count = client_count+1;
-            document.getElementById("target").innerHTML = "Value now " + client_count;
-
-         };
+    function buy(x){
+      alert('Purchased Item: ' + x)
+   } 
+  div(class='container-fluid')
+    div(class='row')
+      each results, index in donuts
+        div(class='col-sm-2' onclick='buy('+index+')') #{results}
 

@@ -1,12 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  - var results = [{"types":"Rosa Peace", "colours": "Red","cost":20},{"types":"New Year", "colours": "Yellow","cost":10},{"types":"Memorial Rose", "colours": "White","cost":15}]
-  div(class="container-fuild")
-    div(class="row")
-      each result,index in results
-        div(class = "col-sm-2" id=index onclick=`buy(${index})`) 
-          p #{result.types}
-          p #{result.colours}
-          p #{result.cost}
+- const mango  = ['types','taste','cost']
+  - let results;
+  script.
+    function buy(x){
+      alert('Purchased Item: ' + x)
+   } 
+  div(class='container-fluid')
+    div(class='row')
+      each results, index in mango 
+        div(class='col-sm-2' onclick='buy('+index+')') #{results}
